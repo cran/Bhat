@@ -50,7 +50,9 @@ logit.hessian(x=x, f=f, del=rep(0.002, length(x$est)), dapprox=F, nfcn=0)
   ## shows the differences in curvature at the minimum of the Banana
   ## function along principal axis (in a logit-transformed coordinate system)
 }
-%\keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ array }% at least one, from doc/KEYWORDS
+\keyword{ iteration }% __ONLY ONE__ keyword per line
+\keyword{ methods }% __ONLY ONE__ keyword per line
+\keyword{ optimize }% __ONLY ONE__ keyword per line
 
 

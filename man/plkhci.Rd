@@ -63,8 +63,9 @@ plkhci(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn=0)
           plkhci(x,nlogf,"c",prob=0.9)
         
 }
-% \keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ distribution }% at least one, from doc/KEYWORDS
+\keyword{ multivariate }% __ONLY ONE__ keyword per line
+
 
 
 

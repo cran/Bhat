@@ -1,6 +1,6 @@
 Package: Bhat
 Title: General likelihood exploration
-Version: 0.9-03
+Version: 0.9-04
 Author: E. Georg Luebeck <gluebeck@fhcrc.org>
 Description: Functions for MLE, MCMC, CIs (originally in Fortran)
 Maintainer: Georg Luebeck <gluebeck@fhcrc.org>

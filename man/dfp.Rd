@@ -72,5 +72,6 @@ dfp(x, f, tol=1e-05, nfcn=0)
 	# call:
 	  results <- dfp(x,f=lkh)
 }
-% \keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ optimize }% at least one, from doc/KEYWORDS
+\keyword{ methods }% __ONLY ONE__ keyword per line
+

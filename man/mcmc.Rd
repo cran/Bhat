@@ -75,6 +75,7 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=
 out <- mcmc(x, nlogf, m1=2000, m2=2000, m3=10000, scl1=0.5, scl2=2, skip=10, plot=T)
 # start MCMC from some other point: e.g. try x$est _ c(16,.2,.02)
 }
-% \keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ iteration }% __ONLY ONE__ keyword per line
+\keyword{ methods }% __ONLY ONE__ keyword per line
+\keyword{ optimize }% __ONLY ONE__ keyword per line
 

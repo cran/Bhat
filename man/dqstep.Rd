@@ -42,5 +42,5 @@ dqstep(x, f, sens)
    x <- list(label=c("a","b"),est=c(1,1),low=c(0,0),upp=c(100,100))
    dqstep(x,fr,sens=1)
 }
-% \keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ optimize }% at least one, from doc/KEYWORDS
+\keyword{ iteration }% __ONLY ONE__ keyword per line

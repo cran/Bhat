@@ -68,8 +68,8 @@ newton(x, f, eps=0.1, itmax=10, relax=0, nfcn=0)
           x$est <- r$est
           results <- newton(x,lkh)
 }
-% \keyword{ ~kwd1 }% at least one, from doc/KEYWORDS
-% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ optimize }% at least one, from doc/KEYWORDS
+\keyword{ methods }% __ONLY ONE__ keyword per line
 
 
 

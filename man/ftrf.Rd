@@ -21,3 +21,5 @@ ftrf(x, xl, xu)
 }
 \author{ E. Georg Luebeck (FHCRC) }
 \seealso{ btrf }
+\keyword{ optimize }% at least one, from doc/KEYWORDS
+\keyword{ misc }% __ONLY ONE__ keyword per line

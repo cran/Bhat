@@ -9,7 +9,7 @@
   according to x'=log((x-xl)/(xu-x))), with xl < x < xu.
 }
 \usage{
-logit.hessian(x=x, f=f, del=rep(0.002, length(x$est)), dapprox=F, nfcn=0)
+logit.hessian(x=x, f=f, del=rep(0.002, length(x$est)), dapprox=FALSE, nfcn=0)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{

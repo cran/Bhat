@@ -5,6 +5,6 @@ function(xt,xl,xu) {
 ####  this assumes logit transformations of the parameters
 ####  bounded from below by xl and from above by xu
 
-  rho_ exp(xt)
+  rho <- exp(xt)
   return((rho * xu + xl)/(1.+rho))
 }

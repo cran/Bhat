@@ -53,7 +53,7 @@ plkhci <- function(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn = 0) {
         # *** shoot along tangent?
         # *** initialize first step
 
-        h <- logit.hessian(x,nlogf,del,dapprox=F,nfcn)  # returns list: $df,$ddf,$nfcn
+        h <- logit.hessian(x,nlogf,del,dapprox=FALSE,nfcn)  # returns list: $df,$ddf,$nfcn
         nfcn <- h$nfcn
         ddf <- h$ddf; df <- h$df
 
@@ -98,7 +98,7 @@ plkhci <- function(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn = 0) {
 
         x0 <- x; x0$est <- btrf(xt0, x$low, x$upp)
         f0 <- nlogf(x0$est); nfcn <- nfcn + 1
-        h <- logit.hessian(x0,nlogf,del,dapprox=F,nfcn)  # returns list: $df,$ddf,$nfcn
+        h <- logit.hessian(x0,nlogf,del,dapprox=FALSE,nfcn)  # returns list: $df,$ddf,$nfcn
         nfcn <- h$nfcn
         ddf <- h$ddf; df <- h$df
 
@@ -139,7 +139,7 @@ plkhci <- function(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn = 0) {
         nz <- 0
         xt0[p]  <- xt00[p]+disc[1]
         xt0[-p] <- xt00[-p]+disc[2:npar]
-                tmp _ numeric(npar)
+                tmp <- numeric(npar)
                 tmp[abs(disc) <= eps] <- 1
                 nz <- sum(tmp)
 
@@ -166,7 +166,7 @@ plkhci <- function(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn = 0) {
         cat('log derivatives:    ',df[-p],'\n')
         m.out <- cbind(x$label, signif(estimate,6), signif(df,6), signif(diag(ddf),6))
         dimnames(m.out) <- list(1:npar, c("label", "estimate", "log deriv", "log curv"))
-        print(m.out, quote = F)
+        print(m.out, quote = FALSE)
         cat('\n');break
       }
         # cat('\n')

@@ -1,5 +1,5 @@
 "logit.hessian" <-
-function(x=x,f=f,del=rep(.002,length(x$est)),dapprox=F,nfcn=0) {
+function(x=x,f=f,del=rep(.002,length(x$est)),dapprox=FALSE,nfcn=0) {
   # computes the hessian of f on logit scale
   small <- 1.e-8
   npar <- length(x$est)
@@ -24,7 +24,7 @@ function(x=x,f=f,del=rep(.002,length(x$est)),dapprox=F,nfcn=0) {
   xn[i,j.odd]  <- xn[i,j.odd] +del[i]
   }
 
-  if(dapprox==F) {
+  if(dapprox==FALSE) {
    # ***   OFF AXIS
    if(npar > 1) {
      mc <- np2+1
@@ -66,9 +66,9 @@ function(x=x,f=f,del=rep(.002,length(x$est)),dapprox=F,nfcn=0) {
   df <- (f.vec[i.even]-f.vec[i.odd])/2/del
   if(npar > 1) {ddf <- diag((f.vec[i.even]+f.vec[i.odd]-2*f0)/(del**2))/2 }
   else {ddf <- (f.vec[i.even]+f.vec[i.odd]-2*f0)/(del**2)/2 }  
-  # print(format(ddf),quote=F)
+  # print(format(ddf),quote=FALSE)
  
-  if(dapprox==F) {
+  if(dapprox==FALSE) {
   # ***   SECOND DERIVATIVES
  
   if(npar > 1) {

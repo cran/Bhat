@@ -461,7 +461,7 @@ function (x, f, tol=1e-5, nfcn = 0)
 	    x$est <- btrf(xt, x$low, x$upp)
             ####  compute error (logit scale)
             del <- dqstep(x,f,sens=.01)
-            h <- logit.hessian(x,f,del,dapprox=F,nfcn); nfcn <- h$nfcn
+            h <- logit.hessian(x,f,del,dapprox=FALSE,nfcn); nfcn <- h$nfcn
             v <- solve(h$ddf)
             
             xtl <- xt-1.96*sqrt(diag(v))
@@ -477,7 +477,7 @@ function (x, f, tol=1e-5, nfcn = 0)
 	    cat("\n")
 	    m.out <- cbind(x$label, signif(x$est,8), signif(xl,8), signif(xu,8))
 	    dimnames(m.out) <- list(1:npar, c("label", "estimate", "low", "high"))
-	    print(m.out, quote = F)
+	    print(m.out, quote = FALSE)
 	    cat("\n")
 	    return(list(fmin = fmin, label = x$label, est = x$est, status=status))
 }

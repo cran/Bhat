@@ -53,7 +53,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 # ***   ON AXES
                 if(n==1) del <- dqstep(x,f,sens)
                 if(flag.hessian==1) {
-                  h <- logit.hessian(x,f,del,dapprox=F,nfcn)  # returns list: $df,$ddf,$nfcn
+                  h <- logit.hessian(x,f,del,dapprox=FALSE,nfcn)  # returns list: $df,$ddf,$nfcn
                   nfcn <- h$nfcn
                   ddf <- h$ddf; df <- h$df
                 } else {
@@ -117,14 +117,14 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 }
               }
                 # cat('compare:','\n')
-                # print(format(h$ddf),quote=F)
-                # print(format(ddf),quote=F)
+                # print(format(h$ddf),quote=FALSE)
+                # print(format(ddf),quote=FALSE)
                       
                 b <- diag(1,npar)
                 # *** if inversion fails need to return or reinitialize NR (not implemented)
                 ggf <- solve(ddf,b,tol=1.e-10)
 
-                # cat('unity test:','\n'); print(format(ggf %*% ddf),quote=F)
+                # cat('unity test:','\n'); print(format(ggf %*% ddf),quote=FALSE)
               
                 # ---	variable Newton stepping
 
@@ -134,7 +134,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
 
                 xt <- xt0 + disc
                 # cat(xt0,'\n',xt,'\n',df,'\n')
-                tmp _ numeric(npar)
+                tmp <- numeric(npar)
                 tmp[abs(df) <= eps] <- 1
                 nz <- sum(tmp)
                 f0 <- f(btrf(xt, x$low, x$upp)); nfcn <- nfcn + 1
@@ -159,7 +159,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
 
                 # ---	compute Hessian symmetrically:
                 x$est <- btrf(xt,x$low,x$upp)  
-                # h <- logit.hessian(x,f,del,dapprox=F,nfcn)  # returns list: $df,$ddf,$nfcn
+                # h <- logit.hessian(x,f,del,dapprox=FALSE,nfcn)  # returns list: $df,$ddf,$nfcn
                 b <- diag(1,npar)
                 ggf <- solve(ddf,b,tol=1.e-10)
 
@@ -182,7 +182,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 m.out <- cbind(x$label, round(x$est,6), round(h$df,6), round(xlow,6), round(xupp,6))
                 dimnames(m.out) <- list(1:npar, c("label", "estimate", "log deriv", "lower 95%" , "upper 95%"))
 
-                print(m.out, quote=F)
+                print(m.out, quote=FALSE)
                 cat("\n")
                 return(list(fmin = f0, label = x$label, est = x$est, low = xlow, upp = xupp))
 
@@ -215,7 +215,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 vbar <- rep("|",npar)
                 m.out <- cbind(x$label, round(x$est,6), round(df,6), round(xlow,6), round(xupp,6))
                 dimnames(m.out) <- list(1:npar, c("label", "estimate", "log deriv", "lower 95%" , "upper 95%"))
-                print(m.out, quote = F)
+                print(m.out, quote = FALSE)
                 cat("\n")
             }
                 return(list(fmin = f0, label = x$label, est = x$est, low = xlow, upp = xupp))

@@ -11,7 +11,7 @@
   one proposed in Gelfand and Sahu (JCGS 3:261--276, 1994).
 }
 \usage{
-mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=F)
+mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn=0, plot=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -20,22 +20,21 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=
     lower bounds), and 'upp' (vector with upper bounds) }
   \item{nlogf}{ negative log of the density function (not necessarily
     normalized) for which samples are to be obtained }
-  \item{m1}{ length of first pilot run }
-  \item{m2}{ length of second pilot run }
+  \item{m1}{ length of first pilot run (not used when covm supplied) }
+  \item{m2}{ length of second pilot run (not used when covm supplied )}
   \item{m3}{ length of final run }
   \item{scl1}{ scale for covariance of mv normal proposal (second pilot
     run) } 
   \item{scl2}{ scale for covariance of mv normal proposal (final run) }
   \item{skip}{ number of cycles skipped for graphical output }
-  \item{happrox}{ logical variable. If TRUE, the first pilot run uses a
-    mv normal proposal (wrt logit-transformed parameters) which starts
-    off with a covaricance derived from a Hessian of nlogf with all
-    off-diagonal elements set to zero. If FALSE, the full Hessian of
-    nlogf is computed. If the Hessian of nlogf at x is not positive
-    definite, only its diagonal elements are used }
+  \item{covm}{ covariance matrix for multivariate normal proposal
+    distribution. If supplied, all pilot runs will be skipped and a
+    run of length m3 will be produced. Useful to continue a
+    simulation from a given point with specified covm }
   \item{nfcn}{ number of function calls }
   \item{plot}{ logical variable. If TRUE the chain and the negative
-    log density (nlogf) is plotted }
+    log density (nlogf) is plotted. The first m1+m2 cycles are shown
+    in green, other cycles in red }
 }
 \details{
   standard output reports a summary of the acceptance fraction, the
@@ -46,6 +45,7 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=
   list with the following components:
   \item{f }{ values of nlogf for the samples obtained }
   \item{mcmc }{ the chain (samples obtained) }
+  \item{covm }{ current covariance matrix for mv normal proposal distribution}
 }
 \references{ too numerous to be listed here }
 \author{ E. Georg Luebeck (FHCRC) }
@@ -70,10 +70,10 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=
 
 # start MCMC near mle
   x <- list(label=c("a","b","c"), est=c(20, 0.5, 0.05), low=c(0,0,0), upp=c(100,10,.1))
-# samples from posterior density (~exp(-nlogf))) using non-informative
+# samples from posterior density (~exp(-nlogf))) with non-informative
 # (random uniform) priors for "a", "b" and "c".
-out <- mcmc(x, nlogf, m1=2000, m2=2000, m3=10000, scl1=0.5, scl2=2, skip=10, plot=T)
-# start MCMC from some other point: e.g. try x$est _ c(16,.2,.02)
+out <- mcmc(x, nlogf, m1=2000, m2=2000, m3=10000, scl1=0.5, scl2=2, skip=10, plot=TRUE)
+# start MCMC from some other point: e.g. try x$est <- c(16,.2,.02)
 }
 \keyword{ iteration }% __ONLY ONE__ keyword per line
 \keyword{ methods }% __ONLY ONE__ keyword per line

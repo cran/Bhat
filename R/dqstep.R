@@ -20,6 +20,7 @@ function(x,f,sens) {
       f2 <- f(btrf(xt.new, x$low, x$upp))
 
       # handle exceptions
+      if (is.na(f2)) f2 <- Inf
       if(f2==Inf | f2==-Inf) {
         warning('Infs - reducing step size')
         stepi <- stepi/10; flag <- 0}
@@ -38,7 +39,7 @@ function(x,f,sens) {
 
     # ***roots
     r <- a*a+4*b*sens
-    if(r < 0) {
+    if(r < 0 | is.na(r) | b ==0) {
       warning('oops: unable to find stepsize, use default')
       cat('problem with ',x$label[i],'\n')
       break
@@ -52,6 +53,7 @@ function(x,f,sens) {
     # *** see where we end up
     xt.new[i] <- xt[i]+xs
     f2 <- f(btrf(xt.new, x$low, x$upp))
+    if (is.na(f2)) f2 <- Inf
     if(f2==Inf | f2==-Inf) {
       warning('oops: unable to find stepsize, use default')
       break

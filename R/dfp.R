@@ -22,6 +22,7 @@ function (x, f, tol=1e-5, nfcn = 0)
 	    tlamin <- 0.05
 	    tlamax <- 6
 	    iter <- 0
+            status <- 1
 	    if (!is.list(x)) {
 	    	    cat("x is not a list! see help file", "\n")
 	    	    return()
@@ -455,7 +456,7 @@ function (x, f, tol=1e-5, nfcn = 0)
                                   }
 	    	    	    break
 	    	    }
-	    }
+                  }
 	    fmin <- f(btrf(xt, x$low, x$upp)); nfcn <- nfcn + 1
 
 	    x$est <- btrf(xt, x$low, x$upp)
@@ -479,7 +480,7 @@ function (x, f, tol=1e-5, nfcn = 0)
 	    dimnames(m.out) <- list(1:npar, c("label", "estimate", "low", "high"))
 	    print(m.out, quote = FALSE)
 	    cat("\n")
-	    return(list(fmin = fmin, label = x$label, est = x$est, status=status))
+	    return(list(fmin = fmin, label = x$label, est = x$est, status=status, nfcn=nfcn))
 }
 
 

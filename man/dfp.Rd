@@ -43,6 +43,7 @@ dfp(x, f, tol=1e-05, nfcn=0)
   \item{est }{ a vector of the estimates at the minimum. dfp
     does not overwrite \code{x} }
   \item{status }{ 0 indicates convergence, 1 indicates non-convergence }
+  \item{nfcn }{ no. of function calls }
 }
 \references{ Fletcher's Switching Method (Comp.J. 13,317, 1970)
 }

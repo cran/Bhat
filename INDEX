@@ -1,0 +1,8 @@
+btrf                     Generalized inverse-logit transform
+dfp                      Function minimization with box-constraints
+dqstep                   step size generator
+ftrf                     Generalized logit transform
+logit.hessian            Hessian (curvature matrix)
+mcmc                     Adaptive Multivariate MCMC sampler
+newton                   Function minimization with box-constraints
+plkhci                   Profile-likelihood based confidence intervals

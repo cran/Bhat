@@ -20,6 +20,6 @@ ftrf(x, xl, xu)
   returns numerical vector of transforms
 }
 \author{ E. Georg Luebeck (FHCRC) }
-\seealso{ btrf }
+\seealso{ \code{\link{btrf}} }
 \keyword{ optimize }% at least one, from doc/KEYWORDS
 \keyword{ misc }% __ONLY ONE__ keyword per line

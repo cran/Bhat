@@ -41,12 +41,12 @@ newton(x, f, eps=0.1, itmax=10, relax=0, nfcn=0)
 }
 \author{ E. Georg Luebeck (FHCRC) }
 \note{
-  \code{newton} computes the (logit-transformed} Hessian of \code{f}
+  \code{newton} computes the (logit-transformed) Hessian of \code{f}
   (using logit.hessian). This function is part of the Bhat exploration
   tool
 }
 %  ~Make other sections like WARNING with \section{WARNING }{....} ~
-\seealso{ dfp, ftrf, btrf, logit.hessian, plkhci }
+\seealso{ \code{\link{dfp}}, \code{\link{ftrf}}, \code{\link{btrf}}, \code{\link{logit.hessian}}, \code{\link{plkhci}} }
 \examples{
         # generate some Poisson counts on the fly
           dose <- c(rep(0,100),rep(1,100),rep(5,100),rep(10,100))

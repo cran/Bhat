@@ -29,7 +29,7 @@ dqstep(x, f, sens)
 }
 % ~Make other sections like WARNING with \section{WARNING }{....} ~
 
-\seealso{ dfp, newton, logit.hessian }
+\seealso{ \code{\link{dfp}}, \code{\link{newton}}, \code{\link{logit.hessian}} }
 
 \examples{
   ## Rosenbrock Banana function

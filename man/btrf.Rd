@@ -19,6 +19,6 @@ btrf(xt, xl, xu)
   returns the inverse-logit transform (numeric) of xt
 }
 \author{ E. Georg Luebeck (FHCRC) }
-\seealso{ ftrf }
+\seealso{ \code{\link{ftrf}} }
 \keyword{ optimize }% at least one, from doc/KEYWORDS
 \keyword{ misc }% __ONLY ONE__ keyword per line

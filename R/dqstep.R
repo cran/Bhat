@@ -2,7 +2,7 @@
 function(x,f,sens) {
   # fix nfcn counter later
   npar  <- length(x$est)
-  step <- .0001; dsteps <- rep(.001,npar)
+  step <- .001; dsteps <- rep(step,npar)
 
   # OBTAIN REFERENCE POINT VALUE
   xt <- ftrf(x$est, x$low, x$upp)
@@ -19,11 +19,15 @@ function(x,f,sens) {
       xt.new[i] <- xt[i]+stepi; x2 <- stepi
       f2 <- f(btrf(xt.new, x$low, x$upp))
 
+      # handle exceptions
       if(f2==Inf | f2==-Inf) {
         warning('Infs - reducing step size')
         stepi <- stepi/10; flag <- 0}
+      if(f2==f0 & f1==f0) {
+        cat('increasing step size','\n')
+        stepi <- stepi*10; flag <- 0}
       if(abs(f2-f0) > (.5 * sens) | abs(f1-f0) > (.5 * sens)) {
-        # warning('reducing step size')
+        cat('reducing step size','\n')
         stepi <- stepi/10; flag <- 0
         # cat(stepi,f1,f2,'\n')
       }
@@ -33,6 +37,13 @@ function(x,f,sens) {
     a <- (f1-f0)/x1-b*x1
 
     # ***roots
+    r <- a*a+4*b*sens
+    if(r < 0) {
+      warning('oops: unable to find stepsize, use default')
+      cat('problem with ',x$label[i],'\n')
+      break
+    }
+      
     xs1 <- 0.5*(-a-sqrt(a*a+4*b*sens))/b
     xs2 <- 0.5*(-a+sqrt(a*a+4*b*sens))/b
 

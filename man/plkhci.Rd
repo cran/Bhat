@@ -35,7 +35,7 @@ plkhci(x, nlogf, label, prob=0.95, eps=.001, nmax=10, nfcn=0)
 
 %  ~Make other sections like WARNING with \section{WARNING }{....} ~
 
-\seealso{ dfp, newton, logit.hessian }
+\seealso{ \code{\link{dfp}}, \code{\link{newton}}, \code{\link{logit.hessian}} }
 
 \examples{
         # generate some Poisson counts on the fly

@@ -53,7 +53,7 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, happrox=F, nfcn=0, plot=
 }
 %  ~Make other sections like WARNING with \section{WARNING }{....} ~
 
-\seealso{ dfp, newton, logit.hessian }
+\seealso{ \code{\link{dfp}}, \code{\link{newton}}, \code{\link{logit.hessian}} }
 
 \examples{
 # generate some Poisson counts on the fly

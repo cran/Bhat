@@ -51,7 +51,7 @@ dfp(x, f, tol=1e-05, nfcn=0)
 \note{ This function is part of the Bhat exploration tool
 }
 % ~Make other sections like WARNING with \section{WARNING }{....} ~
-\seealso{ optim, newton, ftrf, btrf, logit.hessian
+\seealso{ optim, \code{\link{newton}}, \code{\link{ftrf}}, \code{\link{btrf}}, \code{\link{logit.hessian}}
 }
 \examples{
         # generate some Poisson counts on the fly

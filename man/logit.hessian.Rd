@@ -36,7 +36,7 @@ logit.hessian(x=x, f=f, del=rep(0.002, length(x$est)), dapprox=F, nfcn=0)
 }
 \author{ E. Georg Luebeck (FHCRC) }
 \note{ This function is part of the Bhat exploration tool }
-\seealso{ dfp, newton, ftrf, btrf, dqstep } 
+\seealso{ \code{\link{dfp}}, \code{\link{newton}}, \code{\link{ftrf}}, \code{\link{btrf}}, \code{\link{dqstep}} } 
 \examples{
   ## Rosenbrock Banana function
    fr <- function(x) {

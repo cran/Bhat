@@ -1,5 +1,5 @@
-"mcmc" <-
-function (x, nlogf, m1, m2=min(m1,m3), m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn = 0, plot=FALSE)
+"mymcmc" <-
+function (x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn = 0, plot=FALSE)
 {
 	    #     MCMC/MH sampler for R
 	    #     This module is part of the Bhat likelihood exploration tool.
@@ -87,7 +87,7 @@ function (x, nlogf, m1, m2=min(m1,m3), m3, scl1=0.5, scl2=2, skip=1, covm=0, nfc
 
               # *** R ratio 
               if(any(abs(yt) > xinf)) {
-                cat('cycle',n,': mcmc close to boundary, move rejected!','\n'); accept <- 0} else {
+                cat('cycle',n,': mymcmc close to boundary, move rejected!','\n'); accept <- 0} else {
               accept <- min(accept,exp(-f.new+f.old))}
               
               if(accept == 1) {xt <- yt; f.old <- f.new; acc.count <- acc.count+1
@@ -149,8 +149,8 @@ function (x, nlogf, m1, m2=min(m1,m3), m3, scl1=0.5, scl2=2, skip=1, covm=0, nfc
               # *** compute proposal x' (=yt). If unacceptable, reject
               dx <-  eig$vectors %*% rnorm(npar,0,sqrt(eig$values))
               y <- x.mon[n-1,] + scl2 * dx
-              if(any((y-x$low) < small)) {cat('mcmc move rejected (lower bound)','\n'); accept <- 0}
-              if(any((x$upp-y) < small)) {cat('mcmc move rejected (upper bound)','\n'); accept <- 0}
+              if(any((y-x$low) < small)) {cat('move rejected (lower bound)','\n'); accept <- 0}
+              if(any((x$upp-y) < small)) {cat('move rejected (upper bound)','\n'); accept <- 0}
 
               # *** boundary checks from within func ...
 
@@ -196,7 +196,7 @@ function (x, nlogf, m1, m2=min(m1,m3), m3, scl1=0.5, scl2=2, skip=1, covm=0, nfc
                 nc <- nc + 1
               }
 
-                if(m1 > 1) { #note: when covm is passed to mcmc, m1 is set to 1
+                if(m1 > 1) { #note: when covm is passed to mymcmc, m1 is set to 1
                 # update covariance using sampled increments (m1+1):n
                 if(n <= m1+m2) {
                 covm <- cov(x.mon[2:n,]-x.mon[1:(n-1),])

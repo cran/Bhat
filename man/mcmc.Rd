@@ -1,5 +1,5 @@
-\name{mcmc}
-\alias{mcmc}
+\name{mymcmc}
+\alias{mymcmc}
 %- Also NEED an `\alias' for EACH other topic documented here.
 \title{ Adaptive Multivariate MCMC sampler  }
 \description{ This function generates MCMC-based samples from a (posterior)
@@ -11,7 +11,7 @@
   one proposed in Gelfand and Sahu (JCGS 3:261--276, 1994).
 }
 \usage{
-mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn=0, plot=FALSE)
+mymcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn=0, plot=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -72,7 +72,7 @@ mcmc(x, nlogf, m1, m2=m1, m3, scl1=0.5, scl2=2, skip=1, covm=0, nfcn=0, plot=FAL
   x <- list(label=c("a","b","c"), est=c(20, 0.5, 0.05), low=c(0,0,0), upp=c(100,10,.1))
 # samples from posterior density (~exp(-nlogf))) with non-informative
 # (random uniform) priors for "a", "b" and "c".
-out <- mcmc(x, nlogf, m1=2000, m2=2000, m3=10000, scl1=0.5, scl2=2, skip=10, plot=TRUE)
+out <- mymcmc(x, nlogf, m1=2000, m2=2000, m3=10000, scl1=0.5, scl2=2, skip=10, plot=TRUE)
 # start MCMC from some other point: e.g. try x$est <- c(16,.2,.02)
 }
 \keyword{ iteration }% __ONLY ONE__ keyword per line

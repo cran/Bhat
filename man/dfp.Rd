@@ -29,8 +29,9 @@ dfp(x, f, tol=1e-05, nfcn=0)
     (the parameter vector with the initial guess), 'low' (vector with
     lower bounds), and 'upp' (vector with upper bounds) }
   \item{f}{ the function that is to be minimized over the parameter 
-             vector defined by the list \code{x} }
-  \item{tol}{ a tolerance used to indicate when convergence }
+    vector defined by the list \code{x} }
+  \item{tol}{ a tolerance used to determine when convergence
+	     should be indicated }
   \item{nfcn}{ number of function calls }
 }
 \details{

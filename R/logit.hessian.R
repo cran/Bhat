@@ -88,10 +88,10 @@ function(x=x,f=f,del=rep(.002,length(x$est)),dapprox=FALSE,nfcn=0) {
  
   eig <- eigen(ddf)
   # cat('eigen values: ',format(sort(eig$values)),'\n')
-  if(any(eig$values) < 0) {
+  if(any(eig$values < 0)) {
     warning('hessian not pos. definite')
   }
-  if(any(abs(eig$values)) < small) {
+  if(any(abs(eig$values) < small)) {
     warning('hessian may be singular')
   }
   # *** ADJUSTMENT OF del (feature not implemented) 

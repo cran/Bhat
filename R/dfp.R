@@ -35,7 +35,7 @@ function (x, f, tol=1e-5, nfcn = 0)
 	    ####  objects:
 	    if (npar <= 0) {
 	    	    warning("no. of parameters < 1")
-	    	    exit
+	    	    stop() 
 	    }
 	    g <- numeric(npar)
 	    gs <- numeric(npar)

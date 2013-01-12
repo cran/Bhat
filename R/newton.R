@@ -29,7 +29,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
 	    ####  objects:
 	    if (npar <= 0) {
 	    	    warning("no. of parameters < 1")
-	    	    exit
+	    	    stop() 
 	    }
 
             small <- 1.e-8
@@ -164,7 +164,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 ggf <- solve(ddf,b,tol=1.e-10)
 
                 xtl <- rep(NA,npar); xtu <- rep(NA,npar)
-                se <- numeric(1:npar)
+                se <- numeric(npar)
                 ggf.diag <- diag(ggf)
                 se[ggf.diag >= 0] <- sqrt(ggf.diag[ggf.diag >= 0])
                 xtl <- xt - 1.96 * se
@@ -193,7 +193,7 @@ function (x, f, eps=1e-1, itmax=10, relax=0, nfcn = 0)
                 # ***	DURING NON-CONVERGEING CYCLES
                 status <- 'non-converged'
                 xtl <- rep(NA,npar); xtu <- rep(NA,npar)
-                se <- numeric(1:npar)
+                se <- numeric(npar)
                 ggf.diag <- diag(ggf)
                 se[ggf.diag >= 0] <- sqrt(ggf.diag[ggf.diag >= 0])
                 xtl <- xt - 1.96 * se

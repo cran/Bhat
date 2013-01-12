@@ -29,7 +29,7 @@ plkhci <- function (x, nlogf, label, prob = 0.95, eps = 0.001, nmax = 10, nfcn =
     npar <- length(x$est)
     if (npar <= 0) {
         warning("no. of parameters < 1")
-        exit
+        stop() 
     }
     small <- 1e-08
     nd1 <- npar - 1

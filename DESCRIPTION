@@ -1,11 +1,37 @@
 Package: Bhat
-Title: General likelihood exploration
-Version: 0.9-10
-Author: Georg Luebeck <gluebeck@fhcrc.org> and Rafael Meza
-        <rmeza@umich.edu>
-Description: Functions for MLE, MCMC, CIs (originally in Fortran)
-Maintainer: Rafael Meza <rmeza@umich.edu>
+Title: General Likelihood Exploration
+Version: 0.9-12
+Authors@R: 
+    c(person(given = "Georg",
+           family = "Luebeck",
+           role = c("aut"),
+           email = "gluebeck@fhcrc.org",
+           comment = c(ORCID = "0000-0002-4378-2829")),
+      person(given = "Rafael",
+           family = "Meza",
+           role = c("aut", "cre"),
+           email = "rmeza@umich.edu",
+           comment = c(ORCID = "0000-0002-1076-5037")),
+      person(given = "Alexander",
+           family = "Gaenko",
+           role = "ctb",
+           email = "galexv@umich.edu",
+           comment = c(ORCID = "0000-0002-1901-0394")))
+Description: Provides functions for Maximum Likelihood
+             Estimation, Markov Chain Monte Carlo, finding confidence
+             intervals.  The implementation is heavily based on the
+             original Fortran source code translated to R.
 License: GPL (>= 2)
-Packaged: 2013-01-12 20:50:16 UTC; rafaelmeza
+Encoding: UTF-8
+Imports: graphics, MASS, stats
+RoxygenNote: 7.0.2
+Suggests: testthat (>= 2.0.0)
+Config/testthat/edition: 2
+NeedsCompilation: no
+Packaged: 2022-05-10 13:13:10 UTC; galexv
+Author: Georg Luebeck [aut] (<https://orcid.org/0000-0002-4378-2829>),
+  Rafael Meza [aut, cre] (<https://orcid.org/0000-0002-1076-5037>),
+  Alexander Gaenko [ctb] (<https://orcid.org/0000-0002-1901-0394>)
+Maintainer: Rafael Meza <rmeza@umich.edu>
 Repository: CRAN
-Date/Publication: 2013-01-16 08:13:31
+Date/Publication: 2022-05-10 13:30:02 UTC
